@@ -1,0 +1,123 @@
+.services-section {
+    background: #0a0a0a;
+    color: #ffffff;
+    padding: 120px 5%;
+}
+
+.services-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4.5rem;
+
+    h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1rem;
+        color: #ffffff;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #0066ff;
+            border-radius: 2px;
+        }
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        color: #aaaaaa;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.service-card {
+    background: #111111;
+    border: 1px solid #222222;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+
+    &:hover {
+        transform: translateY(-10px);
+        border-color: #0066ff;
+    }
+
+    .service-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #1a1a1a;
+        border-radius: 50%;
+    }
+
+    .service-icon-svg {
+        color: #0066ff;
+        animation: breathe 6.5s ease-in-out infinite;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #ffffff;
+    }
+
+    p {
+        color: #bbbbbb;
+        line-height: 1.6;
+    }
+}
+
+.view-all {
+    text-align: center;
+}
+
+.view-all-btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: transparent;
+    color: #0066ff;
+    border: 2px solid #0066ff;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #0066ff;
+        color: #000;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.12) translateY(-8px);
+    }
+}
