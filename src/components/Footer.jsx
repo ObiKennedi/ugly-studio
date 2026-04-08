@@ -6,6 +6,7 @@ import {
     FaLinkedin
 } from "react-icons/fa";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Footer() {
     const [email, setEmail] = useState("");
@@ -42,11 +43,11 @@ export default function Footer() {
                 <div className="links">
                     <h4>Quick Links</h4>
 
-                    <a href="/">Home</a>
-                    <a href="/about">About</a>
-                    <a href="/services">Services</a>
-                    <a href="/gallery">Gallery</a>
-                    <a href="/contact">Contact</a>
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/about">About</NavLink>
+                    <NavLink to="/services">Services</NavLink>
+                    <NavLink to="/gallery">Gallery</NavLink>
+                    <NavLink to="/contact">Contact</NavLink>
                 </div>
 
                 {/* SUBSCRIBE */}
