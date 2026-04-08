@@ -1,31 +1,33 @@
 .plans-section {
     background: #0a0a0a;
     color: #ffffff;
-    padding: 140px 5%;
+    padding: clamp(5rem, 10vw, 9rem) clamp(5%, 8%, 12%);
     position: relative;
 }
 
 .plans-container {
-    max-width: 1300px;
+    max-width: 1380px;
     margin: 0 auto;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: clamp(4rem, 8vw, 6rem);
 
     h1 {
-        font-size: clamp(2.8rem, 6vw, 4.5rem);
-        margin-bottom: 1rem;
+        font-size: clamp(2.6rem, 7vw, 4.8rem);
+        margin-bottom: 1.4rem;
         color: #ffffff;
+        position: relative;
+        display: inline-block;
 
         &::after {
             content: '';
             position: absolute;
-            bottom: -16px;
+            bottom: -18px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90px;
+            width: clamp(70px, 12vw, 110px);
             height: 5px;
             background: #0066ff;
             border-radius: 3px;
@@ -33,83 +35,92 @@
     }
 
     .subtitle {
-        font-size: 1.3rem;
+        font-size: clamp(1.1rem, 3vw, 1.35rem);
         color: #aaaaaa;
-        max-width: 680px;
+        max-width: 760px;
         margin: 0 auto;
+        line-height: 1.65;
     }
 }
 
 .plans-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(320px, 38vw, 420px), 1fr));
+    gap: clamp(2rem, 5vw, 3.2rem);
 }
 
+/* ===================== PLAN CARD ===================== */
 .plan-card {
     background: #111111;
     border: 1px solid #222222;
-    border-radius: 16px;
-    padding: 3rem 2.4rem;
+    border-radius: 20px;
+    padding: clamp(2.5rem, 6vw, 3.8rem) clamp(2rem, 5vw, 3rem);
     position: relative;
-    transition: all 0.4s ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     height: 100%;
     display: flex;
     flex-direction: column;
 
     &:hover {
-        transform: translateY(-15px);
+        transform: translateY(-22px);
         border-color: #0066ff;
-        box-shadow: 0 25px 55px rgba(0, 102, 255, 0.18);
+        box-shadow: 0 30px 70px rgba(0, 102, 255, 0.22);
     }
 
     &.popular {
         border-color: #0066ff;
-        transform: scale(1.05);
-        box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.2);
+        transform: scale(1.04);
+        box-shadow: 0 0 0 6px rgba(0, 102, 255, 0.25);
+        z-index: 2;
+        /* keeps it above others when scaled */
     }
 
     .popular-badge {
         position: absolute;
-        top: -12px;
-        right: 24px;
+        top: -14px;
+        right: 28px;
         background: #0066ff;
         color: #000;
-        font-size: 0.85rem;
+        font-size: clamp(0.8rem, 2.2vw, 0.9rem);
         font-weight: 700;
-        padding: 4px 18px;
+        padding: 6px 22px;
         border-radius: 9999px;
-        letter-spacing: 1px;
+        letter-spacing: 1.2px;
+        box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
     }
 
     .plan-icon {
-        width: 110px;
-        height: 110px;
-        margin: 0 auto 1.8rem;
+        width: clamp(100px, 22vw, 130px);
+        height: clamp(100px, 22vw, 130px);
+        margin: 0 auto clamp(1.6rem, 5vw, 2.4rem);
         display: flex;
         align-items: center;
         justify-content: center;
         background: #1a1a1a;
         border-radius: 50%;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8);
+        flex-shrink: 0;
     }
 
     .plan-icon-svg {
         color: #0066ff;
+        width: 58%;
+        height: 58%;
         animation: breathe 6.5s ease-in-out infinite;
     }
 
     h3 {
-        font-size: 1.85rem;
+        font-size: clamp(1.65rem, 4.5vw, 2.1rem);
         text-align: center;
-        margin-bottom: 0.4rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
     }
 
     .subtitle {
         text-align: center;
         color: #888888;
         margin-bottom: 1.8rem;
-        font-size: 1.1rem;
+        font-size: clamp(1rem, 3vw, 1.15rem);
     }
 
     .price {
@@ -117,13 +128,14 @@
         margin-bottom: 1.8rem;
 
         .amount {
-            font-size: 2.6rem;
+            font-size: clamp(2.4rem, 6vw, 3.2rem);
             font-weight: 700;
             color: #ffffff;
+            line-height: 1;
         }
 
         .period {
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 3vw, 1.15rem);
             color: #aaaaaa;
             margin-left: 6px;
         }
@@ -132,8 +144,9 @@
     .description {
         text-align: center;
         color: #bbbbbb;
-        line-height: 1.7;
-        margin-bottom: 2.4rem;
+        line-height: 1.75;
+        margin-bottom: 2.2rem;
+        font-size: clamp(1rem, 3vw, 1.1rem);
     }
 
     .includes {
@@ -143,34 +156,46 @@
         flex-grow: 1;
 
         li {
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #222;
             color: #cccccc;
-            font-size: 1.05rem;
+            font-size: clamp(1rem, 3vw, 1.08rem);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            &::before {
+                content: '✓';
+                color: #0066ff;
+                font-weight: bold;
+            }
         }
     }
 
     .plan-btn {
         display: block;
         width: 100%;
-        padding: 1.1rem;
+        padding: clamp(1.1rem, 3vw, 1.35rem);
         background: transparent;
         color: #0066ff;
         border: 2px solid #0066ff;
-        border-radius: 8px;
+        border-radius: 10px;
         font-weight: 600;
         text-align: center;
         text-decoration: none;
         margin-top: auto;
-        transition: all 0.3s ease;
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
         &:hover {
             background: #0066ff;
             color: #000;
+            transform: translateY(-3px);
         }
     }
 }
 
+/* ===================== BREATHING ANIMATION ===================== */
 @keyframes breathe {
 
     0%,
@@ -179,18 +204,75 @@
     }
 
     50% {
-        transform: scale(1.15) translateY(-10px);
+        transform: scale(1.14) translateY(-8px);
+    }
+}
+
+/* ===================== RESPONSIVE BREAKPOINTS ===================== */
+
+@media (min-width: 1400px) {
+    .plans-section {
+        padding: 10rem 8%;
+    }
+
+    .plans-grid {
+        gap: 3.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .plans-section {
+        padding: clamp(4.5rem, 9vw, 7rem) 6%;
+    }
+}
+
+@media (max-width: 768px) {
+    .plans-section {
+        padding: clamp(4rem, 10vw, 6rem) 5%;
+    }
+
+    .plans-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: clamp(2rem, 6vw, 2.8rem);
+    }
+
+    .plan-card.popular {
+        transform: scale(1.02);
+    }
+}
+
+@media (max-width: 480px) {
+    .plans-section {
+        padding: clamp(3.5rem, 10vw, 5rem) 1.5rem;
+    }
+
+    .plans-grid {
+        gap: 2rem;
+    }
+
+    .plan-card {
+        padding: clamp(2.2rem, 6vw, 3rem) clamp(1.8rem, 5vw, 2.5rem);
+    }
+
+    .popular-badge {
+        right: 20px;
+        padding: 5px 16px;
     }
 }
 
 .custom-note {
     text-align: center;
-    margin-top: 4rem;
+    margin-top: clamp(3rem, 8vw, 4.5rem);
     color: #aaaaaa;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 3vw, 1.12rem);
 
     a {
         color: #0066ff;
         text-decoration: underline;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #3b82f6;
+        }
     }
 }

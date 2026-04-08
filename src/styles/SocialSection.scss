@@ -6,32 +6,135 @@
     .container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 2rem;
+        padding: 0 1.5rem;
+        /* Slightly reduced for better small-screen breathing room */
     }
 
     h2 {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        /* Fluid scaling */
         margin-bottom: 1rem;
+        line-height: 1.2;
     }
 
     p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
+        font-size: clamp(1rem, 4vw, 1.25rem);
+        /* Fluid scaling */
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .socials {
         display: flex;
         justify-content: center;
-        gap: 2rem;
+        flex-wrap: wrap;
+        /* Crucial for responsiveness */
+        gap: clamp(1.5rem, 4vw, 3rem);
+        /* Fluid gap */
+        padding: 0 1rem;
 
         a {
             color: #333;
             text-decoration: none;
             transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            /* Icons scale nicely */
+            width: clamp(3rem, 8vw, 4.5rem);
+            height: clamp(3rem, 8vw, 4.5rem);
+            border-radius: 50%;
+            /* Makes icons feel more modern & touch-friendly */
 
             &:hover {
                 color: #007bff;
+                transform: scale(1.15);
+                /* Added subtle hover feedback */
+                transition: all 0.3s ease;
             }
+        }
+    }
+
+    /* ===================== RESPONSIVE BREAKPOINTS ===================== */
+
+    /* Large screens (Ultra-wide / 4K) */
+    @media (min-width: 1400px) {
+        padding: 6rem 0;
+        margin-top: 6rem;
+
+        .container {
+            padding: 0 3rem;
+        }
+
+        h2 {
+            font-size: 3.2rem;
+        }
+    }
+
+    /* Tablets & small laptops */
+    @media (max-width: 992px) {
+        padding: 3.5rem 0;
+        margin-top: 3.5rem;
+
+        .socials {
+            gap: 2.5rem;
+        }
+    }
+
+    /* Mobile landscape / large phones */
+    @media (max-width: 768px) {
+        padding: 3rem 0;
+        margin-top: 3rem;
+
+        .container {
+            padding: 0 1.25rem;
+        }
+
+        .socials {
+            gap: clamp(2rem, 5vw, 3rem);
+        }
+    }
+
+    /* Small mobile phones */
+    @media (max-width: 480px) {
+        padding: 2.5rem 0;
+        margin-top: 2.5rem;
+
+        .container {
+            padding: 0 1rem;
+        }
+
+        .socials {
+            gap: 1.75rem;
+            flex-direction: row;
+            /* Keep horizontal even on very small screens */
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        a {
+            width: 3.2rem;
+            height: 3.2rem;
+            font-size: 1.9rem;
+        }
+    }
+
+    /* Extra small phones */
+    @media (max-width: 360px) {
+        .socials {
+            gap: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.85rem;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
         }
     }
 }

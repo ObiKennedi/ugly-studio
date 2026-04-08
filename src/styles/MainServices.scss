@@ -1,31 +1,35 @@
 .main-services-section {
     background: #0a0a0a;
     color: #ffffff;
-    padding: 140px 5%;
+    padding: clamp(5rem, 10vw, 9rem) clamp(5%, 8%, 12%);
     min-height: 100vh;
+    position: relative;
 }
 
 .main-services-container {
-    max-width: 1300px;
+    max-width: 1380px;
     margin: 0 auto;
 }
 
 .main-section-header {
     text-align: center;
-    margin-bottom: 5.5rem;
+    margin-bottom: clamp(4rem, 8vw, 6rem);
+    margin-top: 4rem;
 
     h1 {
-        font-size: clamp(2.8rem, 6vw, 4.5rem);
-        margin-bottom: 1.2rem;
+        font-size: clamp(2.6rem, 7vw, 4.8rem);
+        margin-bottom: 1.5rem;
         color: #ffffff;
+        position: relative;
+        display: inline-block;
 
         &::after {
             content: '';
             position: absolute;
-            bottom: -16px;
+            bottom: -18px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90px;
+            width: clamp(70px, 12vw, 110px);
             height: 5px;
             background: #0066ff;
             border-radius: 3px;
@@ -33,89 +37,104 @@
     }
 
     .subtitle {
-        font-size: 1.3rem;
+        font-size: clamp(1.1rem, 3vw, 1.35rem);
         color: #aaaaaa;
-        max-width: 720px;
+        max-width: 760px;
         margin: 0 auto;
-        line-height: 1.6;
+        line-height: 1.65;
     }
 }
 
 .main-services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 2.8rem;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(320px, 38vw, 420px), 1fr));
+    gap: clamp(2rem, 5vw, 3.2rem);
 }
 
+/* ===================== SERVICE CARD ===================== */
 .main-service-card {
     background: #111111;
     border: 1px solid #222222;
-    border-radius: 16px;
-    padding: 3.2rem 2.4rem;
-    transition: all 0.4s ease;
+    border-radius: 20px;
+    padding: clamp(2.5rem, 6vw, 3.8rem) clamp(2rem, 5vw, 3rem);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
-        transform: translateY(-15px);
+        transform: translateY(-22px);
         border-color: #0066ff;
-        box-shadow: 0 25px 55px rgba(0, 102, 255, 0.18);
+        box-shadow: 0 30px 70px rgba(0, 102, 255, 0.22);
     }
 
     .service-icon {
-        width: 150px;
-        height: 150px;
-        margin: 0 auto 2.2rem;
+        width: clamp(110px, 22vw, 160px);
+        height: clamp(110px, 22vw, 160px);
+        margin: 0 auto clamp(1.8rem, 5vw, 2.8rem);
         display: flex;
         align-items: center;
         justify-content: center;
         background: #1a1a1a;
         border-radius: 50%;
-        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75);
+        box-shadow: 0 25px 55px rgba(0, 0, 0, 0.8);
+        flex-shrink: 0;
     }
 
     .service-icon-svg {
         color: #0066ff;
-        animation: breathe 7s ease-in-out infinite;
+        width: 58%;
+        height: 58%;
+        animation: breathe 6.5s ease-in-out infinite;
     }
 
     h3 {
-        font-size: 1.75rem;
-        margin-bottom: 1.4rem;
+        font-size: clamp(1.55rem, 4vw, 2rem);
+        margin-bottom: 1.3rem;
         color: #ffffff;
+        line-height: 1.2;
     }
 
     .main-description {
-        font-size: 1.15rem;
+        font-size: clamp(1.05rem, 3vw, 1.2rem);
         color: #cccccc;
-        line-height: 1.7;
-        margin-bottom: 1.8rem;
+        line-height: 1.75;
+        margin-bottom: 1.6rem;
+        flex-grow: 1;
     }
 
     .details {
         color: #aaaaaa;
-        line-height: 1.75;
-        margin-bottom: 2.8rem;
+        line-height: 1.8;
+        margin-bottom: clamp(2rem, 5vw, 2.8rem);
+        font-size: clamp(0.97rem, 2.8vw, 1.05rem);
     }
 
     .service-btn {
         display: block;
         width: 100%;
-        padding: 1.1rem;
+        padding: clamp(1.1rem, 3vw, 1.35rem);
         background: transparent;
         color: #0066ff;
         border: 2px solid #0066ff;
-        border-radius: 8px;
+        border-radius: 10px;
         font-weight: 600;
         text-align: center;
         text-decoration: none;
-        transition: all 0.3s ease;
+        font-size: clamp(1rem, 2.8vw, 1.08rem);
+        margin-top: auto;
+        /* pushes button to bottom */
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
         &:hover {
             background: #0066ff;
             color: #000000;
+            transform: translateY(-3px);
         }
     }
 }
 
+/* ===================== BREATHING ANIMATION ===================== */
 @keyframes breathe {
 
     0%,
@@ -124,6 +143,60 @@
     }
 
     50% {
-        transform: scale(1.18) translateY(-12px);
+        transform: scale(1.15) translateY(-10px);
+    }
+}
+
+/* ===================== RESPONSIVE BREAKPOINTS ===================== */
+
+@media (min-width: 1400px) {
+    .main-services-section {
+        padding: 10rem 8%;
+    }
+
+    .main-services-grid {
+        gap: 3.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main-services-section {
+        padding: clamp(4.5rem, 9vw, 7rem) 6%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-services-section {
+        padding: clamp(4rem, 10vw, 6rem) 5%;
+    }
+
+    .main-services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: clamp(2rem, 6vw, 2.8rem);
+    }
+
+    .main-service-card {
+        padding: clamp(2.2rem, 6vw, 3rem) clamp(1.8rem, 5vw, 2.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-services-section {
+        padding: clamp(3.5rem, 10vw, 5rem) 1.5rem;
+    }
+
+    .main-services-grid {
+        gap: 2rem;
+    }
+
+    .main-service-card .service-icon {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+@media (max-width: 360px) {
+    .main-service-card {
+        padding: 2rem 1.5rem;
     }
 }

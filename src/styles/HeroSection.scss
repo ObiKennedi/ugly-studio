@@ -4,95 +4,142 @@
     width: 100%;
     overflow: hidden;
     background: #000000cc;
-
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    padding: clamp(1.5rem, 6vw, 4rem);
 
-    padding: 2rem;
-
-    /* Background image */
+    /* Background */
     >img {
         position: absolute;
-        top: 0;
-        left: 0;
+        inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
         z-index: -1;
+        filter: brightness(0.75) contrast(1.1);
     }
 
-    /* Content wrapper */
+    /* Content */
     >div {
-        max-width: 700px;
-        padding: 2rem;
-
+        max-width: clamp(520px, 85vw, 720px);
+        width: 100%;
+        padding: clamp(1.5rem, 5vw, 3rem);
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: clamp(1.25rem, 4vw, 2.5rem);
+        box-sizing: border-box;
 
-        /* 🫁 Breathing animation */
-        animation: float 4s ease-in-out infinite;
+        animation: float 5.5s ease-in-out infinite;
 
         h1 {
             color: #f0f8ff;
-            font-size: clamp(2rem, 6vw, 5rem);
-            font-weight: 700;
-            text-shadow: 0 0 10px #f0f8ff;
-            line-height: 1.1;
+            font-size: clamp(2.4rem, 7vw, 5.5rem);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin: 0;
         }
 
         p {
             color: #f0f8ff;
-            font-size: clamp(1rem, 2.5vw, 2rem);
-            font-weight: 500;
-            text-shadow: 0 0 10px #f0f8ff;
+            font-size: clamp(1.05rem, 2.8vw, 1.6rem);
+            line-height: 1.5;
+            max-width: 600px; // 👈 better than %
+            margin: 0;
         }
 
+        /* Buttons */
         div {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            width: 100%;
 
             button {
-                padding: 0.8rem 1.5rem;
+                flex: 1 1 200px; // 👈 KEY FIX
+                max-width: 260px;
+                padding: 1rem 1.5rem;
                 font-size: 1rem;
                 font-weight: 600;
-                width: 300px;
                 border: none;
-                border-radius: 0.5rem;
+                border-radius: 0.6rem;
                 cursor: pointer;
                 transition: all 0.3s ease;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 
                 &:hover {
-                    transform: translateY(-3px);
+                    transform: translateY(-4px);
                 }
 
                 &:nth-child(1) {
-                    background-color: #007bff;
+                    background: #007bff;
                     color: #fff;
                 }
 
                 &:nth-child(2) {
-                    background-color: #fff;
+                    background: #fff;
                     color: #007bff;
                 }
             }
         }
     }
+
+    /* ================= RESPONSIVE ================= */
+
+    /* Large screens */
+    @media (min-width: 1400px) {
+        justify-content: center;
+    }
+
+    /* Tablets */
+    @media (max-width: 1024px) {
+        justify-content: center; // 👈 center earlier
+        text-align: center;
+
+        >div {
+            align-items: center;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        padding: 2rem 1.5rem;
+        align-items: center;
+
+        >div {
+            padding: 0;
+            align-items: center;
+        }
+
+        >div div {
+            justify-content: center;
+        }
+
+        >div div button {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+    }
+
+    /* Small phones */
+    @media (max-width: 480px) {
+        padding: 1.5rem 1rem;
+
+        >div {
+            gap: 1.5rem;
+        }
+    }
 }
 
-/* 🫁 Breathing Animation */
+/* Animation */
 @keyframes float {
-    0% {
-        transform: translateY(0px);
+
+    0%,
+    100% {
+        transform: translateY(0);
     }
 
     50% {
         transform: translateY(-12px);
-    }
-
-    100% {
-        transform: translateY(0px);
     }
 }
