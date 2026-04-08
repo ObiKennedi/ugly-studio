@@ -1,5 +1,3 @@
-"use client";
-
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import "../styles/ContactForm.scss";
 import { useState } from "react";

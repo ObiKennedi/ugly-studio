@@ -10,6 +10,7 @@ import {
     Code2,
     Palette
 } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 export default function Services() {
     useEffect(() => {
@@ -92,9 +93,9 @@ export default function Services() {
                 </div>
 
                 <div className="view-all" data-aos="fade-up" data-aos-delay="400">
-                    <a href="/services" className="view-all-btn">
+                    <NavLink to="/services" className="view-all-btn">
                         View All Services & Packages
-                    </a>
+                    </NavLink>
                 </div>
             </div>
         </section>

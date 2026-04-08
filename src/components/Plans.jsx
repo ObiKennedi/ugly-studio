@@ -7,6 +7,7 @@ import {
     TrendingUp,
     Zap
 } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 export default function Plans() {
     useEffect(() => {
@@ -118,16 +119,16 @@ export default function Plans() {
                                     ))}
                                 </ul>
 
-                                <a href="/contact" className="plan-btn">
+                                <NavLink to="/contact" className="plan-btn">
                                     Get This Package
-                                </a>
+                                </NavLink>
                             </div>
                         );
                     })}
                 </div>
 
                 <div className="custom-note" data-aos="fade-up">
-                    <p>Need something custom? <a href="/contact">Talk to us</a> — we love building weird and wonderful combos.</p>
+                    <p>Need something custom? <NavLink to="/contact">Talk to us</NavLink> — we love building weird and wonderful combos.</p>
                 </div>
             </div>
         </section>
